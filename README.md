@@ -1,0 +1,1 @@
+#Workshop for the personal development sessions on [Apache Kafka](https://kafka.apache.org/)
