@@ -1,4 +1,4 @@
-from pykafka import SimpleConsumer, KafkaClient
+from pykafka import KafkaClient
 
 
 client = KafkaClient(hosts="hinata.isis.cclrc.ac.uk:9092")
