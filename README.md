@@ -2,5 +2,5 @@ Workshop for the personal development sessions on [Apache Kafka](https://kafka.a
 
 [pykafka Docs](https://pykafka.readthedocs.io/en/latest/index.html)
 
-`pip install pykafka`
+`pip install -r requirements.txt`
 
