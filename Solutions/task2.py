@@ -1,21 +1,12 @@
-from confluent_kafka import Producer, Consumer
-import uuid
+from pykafka import SimpleConsumer, KafkaClient
 
-config = {'bootstrap.servers': 'hinata.isis.cclrc.ac.uk', 'default.topic.config': {'auto.offset.reset': 'earliest'}, 'group.id': uuid.uuid4()}
 
-# Set up the consumer with the above configuration
-cons = Consumer(config)
+client = KafkaClient(hosts="hinata.isis.cclrc.ac.uk:9092")
 
-# Subscribe to list of topics
-cons.subscribe(['test_jack_workshop'])
+topic = client.topics[b'ConsumeFromMe']
 
-# Set up the producer
-prod = Producer(config)
+consumer = topic.get_simple_consumer(consumer_group=b"mygroup")
 
-# Produce a message onto a specified topic
-prod.produce('test_jack_workshop', "hello world")
-
-# Poll the topic - returns a msg object which has a key, value, timestamp etc
-msg = cons.poll()
+msg = consumer.consume()
 
 print(msg.value)
