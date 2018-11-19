@@ -1,1 +1,1 @@
-import uuid
+from pykafka import KafkaClient
